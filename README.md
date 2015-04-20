@@ -27,7 +27,7 @@ For the training, everyone should use Eclipse. Please install a clean copy of Ec
 Exercises
 ------------
 
-
+See [Training Exercises](https://github.com/jkneal/spring-angular-train/wiki)
 
 Material
 ------------
