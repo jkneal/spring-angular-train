@@ -1,16 +1,17 @@
 package edu.train.product;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.math.BigDecimal;
+import java.util.List;
 
 import lombok.Data;
 
-@Entity
 @Data
 public class Product {
 	
-	@Id
 	private int id;
 	private String name;
+	private BigDecimal price;
+	
+	private List<Category> categories;
 
 }

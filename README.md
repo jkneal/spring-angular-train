@@ -15,7 +15,7 @@ For the training, everyone should use Eclipse. Please install a clean copy of Ec
 ### Obtaining Project
 
 1. Using Git, clone the training repo [https://github.com/jkneal/spring-angular-train](https://github.com/jkneal/spring-angular-train) to a local repo (ex. '/projects/spring-angular-train')
-2. Within Eclipse, choose the File->Import menu action. Next select 'Existing Maven Projects' and click 'Next'. Now select 'Browse' next to root directory and select the location of the training project.
+2. Within Eclipse, choose the File->Import menu action. Next select 'Existing Projects into Workspace' and click 'Next'. Now select 'Browse' next to root directory and select the location of the training project.
 
 ### Running Project
 
