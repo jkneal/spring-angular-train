@@ -1,13 +1,35 @@
 package edu.train.store;
 
-import lombok.Data;
-import edu.train.address.Address;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.Table;
 
-@Data
+@Entity
+@Table(name="STORE_T")
+@IdClass(StorePK.class)
 public class Store {
 
-  private int id;
+  @Id
   private String name;
-  private Address address;
-  private boolean open;
+  
+  @Id
+  private String owner;
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
+  
 }

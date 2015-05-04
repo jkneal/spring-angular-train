@@ -1,17 +1,25 @@
 package edu.train.product;
 
-import java.math.BigDecimal;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import lombok.Data;
-
-@Data
+@Entity
+@Table(name="PRODUCT_T")
 public class Product {
 	
-	private int id;
-	private String name;
-	private BigDecimal price;
-	
-	private List<Category> categories;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
 
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+	
 }

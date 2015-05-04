@@ -1,15 +1,27 @@
 package edu.train.order;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-import lombok.Data;
-import edu.train.customer.Customer;
-
-@Data
+@Entity
+@Table(name="ORDER_T")
+@SequenceGenerator(name="ORDER_SEQ_GEN", sequenceName="ORDER_SEQ")
 public class Order {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ORDER_SEQ_GEN")
   private int id;
-  private Customer customer;
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
   
-  private List<OrderDetail> details;
 }
