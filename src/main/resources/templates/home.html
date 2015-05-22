@@ -47,6 +47,13 @@
                   <a href="#" onClick="$('#deleteInventory').submit()">Ex 14 Delete Product</a>
                 </form>
               </div>
+              <a th:href="@{/inventory/search?searchTerm=apples&amp;sortBy=id}" class="collection-item">Ex 15 Search</a>
+              <a th:href="@{/inventory/search?searchTerm=apples}" class="collection-item">Ex 15 Default Sort</a>
+              <div class="collection-item">
+                <form id="deleteInventoryId" action="/inventory/delete/311" method="post">
+                  <a href="#" onClick="$('#deleteInventoryId').submit()">Ex 15 Delete By Id</a>
+                </form>
+              </div>
 			      </div>
 			      
 			      <div class="collection flex-1">

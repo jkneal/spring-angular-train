@@ -27,5 +27,18 @@ public class InventoryController {
     request.setAttribute("method", "Delete Product");
     return "test-mappings";
   }
+  
+  public String searchProducts(HttpServletRequest request) {
+    request.setAttribute("searchTerm", searchTerm);
+    request.setAttribute("sortBy", sortBy);
+    request.setAttribute("method", "Search");
+    return "test-mappings";
+  }
+  
+  public String deleteProductById(HttpServletRequest request) {
+    request.setAttribute("id", id);
+    request.setAttribute("method", "Delete Product By Id");
+    return "test-mappings";
+  }
 
 }

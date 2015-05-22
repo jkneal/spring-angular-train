@@ -12,6 +12,15 @@
       <blockquote>
         You invoked controller method: 
         <p th:text="${#httpServletRequest.getAttribute('method')}"></p>
+
+        <div th:if="${#httpServletRequest.getAttribute('method') eq 'Search'}">
+          <div>Search Term is <span th:text="${#httpServletRequest.getAttribute('searchTerm')}"></span></div>
+          <div>Sort By is <span th:text="${#httpServletRequest.getAttribute('sortBy')}"></span></div>
+        </div>
+        
+        <div th:if="${#httpServletRequest.getAttribute('method') eq 'Delete Product By Id'}">
+          <div>Delete Product Id is <span th:text="${#httpServletRequest.getAttribute('id')}"></span></div>
+        </div>
       </blockquote>
     </main>
     
