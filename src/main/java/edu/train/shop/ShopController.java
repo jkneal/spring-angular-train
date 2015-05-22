@@ -1,9 +1,17 @@
 package edu.train.shop;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.h2.util.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,6 +42,18 @@ public class ShopController {
     model.addAttribute("store", storeRepository.find("Joe's Sports Store", "Joe"));
     model.addAttribute("products", productRepository.findAll());
     return "shop";
+  }
+  
+  @RequestMapping(value="/newsletter", method=RequestMethod.GET)
+  public void getNewsletter(HttpServletResponse httpServletResponse) {
+    Resource resource = new ClassPathResource("public/newsletter.pdf");
+    try {
+      InputStream inputStream = resource.getInputStream();
+      OutputStream outputStream = httpServletResponse.getOutputStream();
+      IOUtils.copy(inputStream, outputStream);
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   @Autowired
