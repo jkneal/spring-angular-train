@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="home :: head">
+  </head>
+  
+  <body>
+    <header th:replace="home :: header">
+    </header>
+    
+    <main class="container">
+      <h2 th:text="${store.name}">Store Name</h2>
+      <span class="blue-text text-darken-2" th:text="${store.website}">Store Website</span>
+      
+      <h4>Products</h4>
+      
+      <div th:each="product : ${products}">
+        <p th:text="'Product Id: ' + ${product.id}"></p>
+        <p th:text="'Product Name: ' + ${product.name}"></p>
+      </div>
+      
+      <h4>Shopping Options</h4>
+      
+      <div th:each="opt : ${shoppingOptions}">
+        <p th:text="'Option: ' + ${opt}"></p>
+      </div>
+    </main>
+    
+    <footer th:replace="home :: footer">
+    </footer>
+    
+    <div th:replace="home :: scripts">
+    </div>
+  </body>
+</html>
