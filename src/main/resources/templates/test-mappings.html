@@ -1,0 +1,24 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="home :: head">
+  </head>
+  
+  <body>
+    <header th:replace="home :: header">
+    </header>
+    
+    <main class="container">
+      <blockquote>
+        You invoked controller method: 
+        <p th:text="${#httpServletRequest.getAttribute('method')}"></p>
+      </blockquote>
+    </main>
+    
+    <footer th:replace="home :: footer">
+    </footer>
+    
+    <div th:replace="home :: scripts">
+    </div>
+  </body>
+</html>

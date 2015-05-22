@@ -52,3 +52,11 @@ main {
 .border-fix {
 	border-bottom: 1px solid #e0e0e0 !important;
 }
+
+.collection-item a {
+  color: #26a69a;
+}
+
+.collection-item a:hover {
+  background-color: #ddd;
+}
