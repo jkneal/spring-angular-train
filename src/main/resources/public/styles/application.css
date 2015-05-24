@@ -74,3 +74,11 @@ span.badge.highlight {
   border-radius: 2px;
   position: static;
 }
+
+.error {
+	border: 1px solid red !important;
+}
+
+p.errors {
+  color: red;
+}
