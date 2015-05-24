@@ -1,0 +1,22 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="home :: head">
+  </head>
+  
+  <body>
+    <header th:replace="home :: header">
+    </header>
+    
+    <main class="container">
+      <a class="right" th:href="@{/shop/back}">Back</a>
+      <blockquote class="red-text text-lighten-1" th:text="#{msgs.todaysSales}">Today's Sales</blockquote>
+    </main>
+    
+    <footer th:replace="home :: footer">
+    </footer>
+    
+    <div th:replace="home :: scripts">
+    </div>
+  </body>
+</html>

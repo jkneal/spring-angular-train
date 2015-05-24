@@ -41,7 +41,7 @@ public class ShopController {
   public String getAllProducts(Model model) {
     model.addAttribute("store", storeRepository.find("Joe's Sports Store", "Joe"));
     model.addAttribute("products", productRepository.findAll());
-    return "shop";
+    return "shop/index";
   }
   
   @RequestMapping(value="/newsletter", method=RequestMethod.GET)
@@ -54,6 +54,11 @@ public class ShopController {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+  }
+  
+  @RequestMapping(value="/back", method=RequestMethod.GET)
+  public String back() {
+    return "redirect:/";
   }
 
   @Autowired
