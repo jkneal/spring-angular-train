@@ -51,9 +51,6 @@ public class ShopController {
   
   @RequestMapping(method=RequestMethod.GET)
   public String getAllProducts(HttpServletRequest request, Model model) {
-    if (request.getParameter("user") != null) {
-      request.setAttribute("userSession", new UserSession(request.getParameter("user")));
-    }
     model.addAttribute("browsing", Boolean.valueOf(request.getParameter("browsing")));
     model.addAttribute("store", storeRepository.find("Joe's Sports Store", "Joe"));
     model.addAttribute("products", productRepository.findAll());
