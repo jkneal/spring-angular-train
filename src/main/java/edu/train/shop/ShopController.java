@@ -60,13 +60,13 @@ public class ShopController {
   
   @RequestMapping(value="/add", method=RequestMethod.GET)
   public String getAddProduct(Model model) {
-    model.addAttribute("newProduct", new Product());
+    model.addAttribute("product", new Product());
     return "shop/add-product";
   }
   
   @RequestMapping(value="/add", method=RequestMethod.POST)
-  public String addProduct(Product newProduct) {
-    productRepository.save(newProduct);
+  public String addProduct(Product product) {
+    productRepository.save(product);
     return "redirect:/shop";
   }
   

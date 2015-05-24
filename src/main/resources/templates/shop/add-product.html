@@ -11,7 +11,7 @@
     <main class="container">
       <h4>Add Product</h4>
       
-      <form method="post" th:action="@{/shop/add}" th:object="${newProduct}">
+      <form method="post" th:action="@{/shop/add}" th:object="${product}">
          <label>Product Name</label> 
          <input type="text" th:field="*{name}"/>
           
