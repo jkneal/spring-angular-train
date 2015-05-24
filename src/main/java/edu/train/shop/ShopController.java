@@ -6,6 +6,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.h2.util.IOUtils;
@@ -38,7 +39,11 @@ public class ShopController {
   }
 
   @RequestMapping(method=RequestMethod.GET)
-  public String getAllProducts(Model model) {
+  public String getAllProducts(HttpServletRequest request, Model model) {
+    if (request.getParameter("user") != null) {
+      request.setAttribute("userSession", new UserSession(request.getParameter("user")));
+    }
+    model.addAttribute("browsing", Boolean.valueOf(request.getParameter("browsing")));
     model.addAttribute("store", storeRepository.find("Joe's Sports Store", "Joe"));
     model.addAttribute("products", productRepository.findAll());
     return "shop/index";

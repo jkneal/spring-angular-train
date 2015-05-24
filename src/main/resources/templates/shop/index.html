@@ -9,8 +9,49 @@
     </header>
     
     <main class="container">
-      <a class="right" th:href="@{/shop/back}">Back</a>
+      <div class="right right-align">
+	      <div th:if="${#httpServletRequest.getAttribute('userSession') eq null and !browsing}">
+	        Please Login to Shop
+	      </div>
+	      <div th:if="${#httpServletRequest.getAttribute('userSession') ne null}">
+	        <span th:text="${'Welcome ' + #httpServletRequest.getAttribute('userSession').userName}"></span>
+	      </div>
+        
+        <a th:href="@{/shop/back}">Back</a>
+      </div>
+      
       <blockquote class="red-text text-lighten-1" th:text="#{msgs.todaysSales}">Today's Sales</blockquote>
+      
+      <section>
+	      <h4 th:text="${store.name}"></h4>
+	      
+	      <p th:text="${store.address.fullAddress}"></p>
+	      <p th:text="${'Owned by ' + #strings.toUpperCase(store.owner)}"></p>
+	      <p><span class="highlight badge" th:text="${store.open eq 'OPEN' ? 'Open' : 'Closed'}"></span></p>
+      </section>
+      
+      <section>
+	      <h4>Products</h4>
+	      
+	      <table>
+	        <thead>
+	          <tr>
+		          <th>Name</th>
+		          <th>Description</th>
+		          <th>Category</th>
+		          <th>Price</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+			      <tr th:each="product : ${products}">
+			        <td th:text="${product.name}"></td>
+			        <td th:text="${product.description}"></td>
+			        <td th:text="${product.category}"></td>
+			        <td th:text="${product.price}"></td>
+			      </tr>
+	        </tbody>
+	      </table>
+      </section>
     </main>
     
     <footer th:replace="home :: footer">
