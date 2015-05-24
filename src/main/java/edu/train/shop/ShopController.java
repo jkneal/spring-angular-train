@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.train.category.Category;
+import edu.train.category.CategoryRepository;
+import edu.train.product.Product;
 import edu.train.product.ProductRepository;
 import edu.train.store.StoreRepository;
 
@@ -28,6 +31,7 @@ public class ShopController {
   
   private StoreRepository storeRepository;
   private ProductRepository productRepository;
+  private CategoryRepository categoryRepository;
   
   @ModelAttribute("shoppingOptions")
   public List<String> shoppingOptions() {
@@ -37,7 +41,12 @@ public class ShopController {
      options.add("Order");
      return options;
   }
-
+  
+  @ModelAttribute("categories")
+  public Iterable<Category> categories() {
+     return categoryRepository.findAll();
+  }
+  
   @RequestMapping(method=RequestMethod.GET)
   public String getAllProducts(HttpServletRequest request, Model model) {
     if (request.getParameter("user") != null) {
@@ -47,6 +56,18 @@ public class ShopController {
     model.addAttribute("store", storeRepository.find("Joe's Sports Store", "Joe"));
     model.addAttribute("products", productRepository.findAll());
     return "shop/index";
+  }
+  
+  @RequestMapping(value="/add", method=RequestMethod.GET)
+  public String getAddProduct(Model model) {
+    model.addAttribute("newProduct", new Product());
+    return "shop/add-product";
+  }
+  
+  @RequestMapping(value="/add", method=RequestMethod.POST)
+  public String addProduct(Product newProduct) {
+    productRepository.save(newProduct);
+    return "redirect:/shop";
   }
   
   @RequestMapping(value="/newsletter", method=RequestMethod.GET)
@@ -74,6 +95,11 @@ public class ShopController {
   @Autowired
   public void setProductRepository(ProductRepository productRepository) {
     this.productRepository = productRepository;
+  }
+
+  @Autowired
+  public void setCategoryRepository(CategoryRepository categoryRepository) {
+    this.categoryRepository = categoryRepository;
   }
   
 }
