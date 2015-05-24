@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.h2.util.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -60,13 +62,16 @@ public class ShopController {
   
   @RequestMapping(value="/add", method=RequestMethod.GET)
   public String getAddProduct(Model model) {
-    model.addAttribute("newProduct", new Product());
+    model.addAttribute("product", new Product());
     return "shop/add-product";
   }
   
   @RequestMapping(value="/add", method=RequestMethod.POST)
-  public String addProduct(Product newProduct) {
-    productRepository.save(newProduct);
+  public String addProduct(@Valid Product product, BindingResult result) {
+    if (result.hasErrors()) {
+      return "shop/add-product";
+    }
+    productRepository.save(product);
     return "redirect:/shop";
   }
   

@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
+import edu.train.shop.CurrencyFormatter;
 import edu.train.transaction.CreditAuthorizer;
 
 @SpringBootApplication
@@ -31,6 +32,11 @@ public class SpringTrainApplication {
   @Bean
   public CreditAuthorizer jimsCreditCheck() {
     return new CreditAuthorizer("JimsCreditCheck", "jimscreditcheck.com/authorize");
+  }
+  
+  @Bean
+  public CurrencyFormatter currencyFormatter() {
+    return new CurrencyFormatter();
   }
 
 }
