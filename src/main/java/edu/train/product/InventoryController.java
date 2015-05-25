@@ -2,8 +2,6 @@ package edu.train.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,13 +33,12 @@ public class InventoryController {
   }
   
   @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
-  public ResponseEntity<Void> deleteProductById(@PathVariable Integer id) {
+  public void deleteProductById(@PathVariable Integer id) {
     Product product = productRepository.findOne(id);
-    if (product != null) {
-      productRepository.delete(id);
+    if (product == null) {
+      throw new ProductNotFoundException();
     }
-    HttpStatus status = product != null ? HttpStatus.OK : HttpStatus.NOT_FOUND;
-    return new ResponseEntity<Void>(status);
+    productRepository.delete(id);
   }
   
   @Autowired
