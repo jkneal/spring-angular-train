@@ -68,13 +68,12 @@
               <a th:href="@{/shop/add}" class="collection-item">Ex 21 Validate</a>
               <a th:href="@{/shop?user=thmeks}" class="collection-item">Ex 22</a>
               <a th:href="@{/shop/add?user=yoks}" class="collection-item">Ex 22 No Access</a>
-              <a th:href="@{/stores/Joe's Sports Store/Joe}" class="collection-item">Ex 1 Get Store</a>
-              <a th:href="@{/products/1}" class="collection-item">Ex 2 Get Product</a>
-              <a th:href="@{/orders/1}" class="collection-item">Ex 2 Get Order</a>
-              <a th:href="@{/stores/Joe's Sports Store/Joe}" class="collection-item">Ex 2 Get Store</a>
-              <a href="#!" class="collection-item">Exercise 3</a>
-              <a th:href="@{/orders/test}" class="collection-item">Exercise 12</a>
-              <a th:href="@{/inventory}" class="collection-item">Exercise 14</a>
+              <a th:href="@{/shop/products/1}" class="collection-item">Ex 23 Get Product</a>
+              <a th:href="@{/inventory}" class="collection-item">Ex 23 Get All</a>
+              <a href="#" class="collection-item" onClick="testAddProductEndpoint()">Ex 23 Add</a>
+              <a th:href="@{/inventory/search?searchTerm=Bas}" class="collection-item">Ex 23 Search</a>
+              <a href="#" class="collection-item" onClick="testDeleteProductEndpoint(1)">Ex 23 Delete</a>
+              <a href="#" class="collection-item" onClick="testDeleteProductEndpoint(99)">Ex 23 Delete Invalid</a>
             </div>
             
             <div class="collection flex-1">
@@ -132,6 +131,7 @@
     <div th:fragment="scripts">
 	    <script type="text/javascript" th:src="@{/scripts/jquery-2.1.3.min.js}"></script>
 	    <script type="text/javascript" th:src="@{/scripts/materialize.js}"></script>
+	    <script type="text/javascript" th:src="@{/scripts/application.js}"></script>
     </div>
   </body>
 </html>
