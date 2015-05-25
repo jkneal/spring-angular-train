@@ -24,6 +24,9 @@ public class UserSessionInterceptor implements HandlerInterceptor {
       HttpServletResponse response, Object handler, ModelAndView modelAndView)
       throws Exception {
     UserSession userSession = (UserSession) request.getAttribute("userSession");
+    if (userSession == null || modelAndView == null) {
+      return;
+    }
     if ((modelAndView.getViewName() == "shop/add-product") && !userSession.canAddProducts()) {
       modelAndView.setViewName("access-error");
     }
