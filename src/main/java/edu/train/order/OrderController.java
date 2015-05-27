@@ -25,6 +25,11 @@ public class OrderController {
     boolean orderCompleted = orderService.completeOrder(order);
     return orderCompleted ? "Order completed successfully!" : "Order failed";
   }
+  
+  @RequestMapping(method=RequestMethod.POST)
+  public String completeOrder() {
+    return "Order completed successfully!";
+  }
 
   @Autowired
   public void setOrderService(OrderService orderService) {

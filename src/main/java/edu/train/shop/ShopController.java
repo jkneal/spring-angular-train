@@ -95,6 +95,11 @@ public class ShopController {
   public @ResponseBody Product getProduct(@PathVariable Integer id) {
     return productRepository.findOne(id);
   }
+  
+  @RequestMapping(value="/order", method=RequestMethod.GET)
+  public String getOrder() {
+    return "shop/order";
+  }
 
   @Autowired
   public void setStoreRepository(StoreRepository storeRepository) {
