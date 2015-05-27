@@ -22,8 +22,8 @@
       
       <blockquote class="red-text text-lighten-1" th:text="#{msgs.todaysSales}">Today's Sales</blockquote>
       
-      <section>
-	      <h4 th:text="${store.name}"></h4>
+      <section id="storeInformation">
+	      <h4 id="storeName" th:text="${store.name}"></h4>
 	      
 	      <p th:text="${store.address.fullAddress}"></p>
 	      <p th:text="${'Owned by ' + #strings.toUpperCase(store.owner)}"></p>
@@ -31,9 +31,9 @@
       </section>
       
       <section>
-	      <h4>Products</h4>
+	      <h4><a id="productLink" href="#">Products</a></h4>
 	      
-	      <table>
+	      <table id="productTable">
 	        <thead>
 	          <tr>
 		          <th>Name</th>
@@ -44,7 +44,7 @@
 	        </thead>
 	        <tbody>
 			      <tr th:each="product : ${products}">
-			        <td th:text="${product.name}"></td>
+			        <td th:text="${product.name}" data-attr="name"></td>
 			        <td th:text="${product.description}"></td>
 			        <td th:text="${product.category}"></td>
 			        <td th:text="${{product.price}}"></td>
