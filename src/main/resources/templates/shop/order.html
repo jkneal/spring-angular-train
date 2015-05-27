@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="home :: head">
+  </head>
+  
+  <body>
+    <header th:replace="home :: header">
+    </header>
+    
+    <main class="container">
+       <p><button class="btn" onClick="runOrderTests()">Run Order Tests</button></p>
+    </main>
+    
+    <footer th:replace="home :: footer">
+    </footer>
+    
+    <div th:replace="home :: scripts">
+    </div>
+    <script type="text/javascript" th:src="@{/scripts/order-tests.js}"></script>
+    <script type="text/javascript" th:src="@{/scripts/order.js}"></script>
+  </body>
+</html>
