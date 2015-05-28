@@ -31,3 +31,46 @@ main {
 	display: flex;
 	flex-direction: column;
 }
+
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-1 {
+	flex: 1;
+}
+
+.border-fix {
+	border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.collection-item a {
+  color: #26a69a;
+}
+
+.collection-item a:hover {
+  background-color: #ddd;
+}
+
+.right {
+	float: right;
+	margin-top: 1em;
+}
+
+span.badge.highlight {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #26a69a;
+  border-radius: 2px;
+  position: static;
+}
+
+.error {
+	border: 1px solid red !important;
+}
+
+p.errors {
+  color: red;
+}
