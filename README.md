@@ -110,6 +110,10 @@ Exercises
 
 See [Training Exercises](https://github.com/jkneal/spring-angular-train/wiki)
 
+The training repository contains a branch for each exercise. The branches are named as ‘exercise’ followed by the exercise number. For example, if you wish to work on exercise 5, you should check out the branch named ‘exercise5’.
+
+If you don't complete an exercise, you can commit work in progress to your local repository. Then, switch to the next branch to work on the next exercise. Finally, at any time come back to the uncompleted exercise branch and continue your work. If you haven't used Git before, you might spend some time getting familar with branches and switching. Note, besides the command line, Eclipse provdes Git integration. You can invoke many Git commands by right clicking on the project and selecting 'Team ->' ('Switch To' can be used to switch branches).
+
 Presentations
 ------------
 
