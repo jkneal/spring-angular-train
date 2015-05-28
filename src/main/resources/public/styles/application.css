@@ -83,3 +83,7 @@ span.badge.highlight {
 p.errors {
   color: red;
 }
+
+.collection.flex-1 {
+	margin-right: 1em;
+}
