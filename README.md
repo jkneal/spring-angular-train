@@ -30,17 +30,13 @@ If you already have a JDK installed and the version is 7 or greater you should b
 
 When you are done, open a console and type the following command:
 
-    ```
     java -version
-    ```
     
 You should see output similar to the following:
 
-   ```    
    java version "1.8.0_40"
    Java(TM) SE Runtime Environment (build 1.8.0_40-b26)
    Java HotSpot(TM) 64-Bit Server VM (build 25.40-b25, mixed mode)
-   ```
    
 ### Eclipse
 
@@ -79,33 +75,26 @@ Click the download link appropriate for you platform. After downloading run the 
 
 When you are done, open a console and type the following command:
 
-    ```
     git --version
-    ```
     
 You should see output similar to the following:
 
-   ```
    git version 2.4.0
-   ```
   
-
 ### Obtaining The Project
 
 1. Using Git, clone the training repo [https://github.com/jkneal/spring-angular-train](https://github.com/jkneal/spring-angular-train) to a local repo (ex. '/projects/spring-angular-train'). You can do this with the following command (assuming you are in the '/projects' directory):
 
-   ```
    git clone https://github.com/jkneal/spring-angular-train spring-angular-train
-   ```
+   
 2. Within Eclipse, choose the File->Import menu action. Next select 'Existing Projects into Workspace' and click 'Next'. Now select 'Browse' next to root directory and select the location of the training project.
 
 ### Running
 
 1. In the Eclipse Package Explorer find the file named `RunSpringTrain.launch` (in root of project). Right click this file and select 'Run As -> RunSpringTrain'. When the project is done starting up you should see this:
 
-   ```
-   edu.train.SpringTrainApplication         : Started SpringTrainApplication in 4.135 seconds (JVM running for 4.669)
-   ```
+   edu.train.SpringTrainApplication : Started SpringTrainApplication in 4.135 seconds (JVM running for 4.669)
+
 2. Open a browser and go to [http://localhost:8080/](http://localhost:8080/). You should see the training home (menu) page. Note the exercise links will not necessarily work yet (until they are completed)
 
 Exercises
