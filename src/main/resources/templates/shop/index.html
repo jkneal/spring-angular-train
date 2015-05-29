@@ -22,36 +22,58 @@
       
       <blockquote class="red-text text-lighten-1" th:text="#{msgs.todaysSales}">Today's Sales</blockquote>
       
-      <section id="storeInformation">
-	      <h4 id="storeName" th:text="${store.name}"></h4>
-	      
-	      <p th:text="${store.address.fullAddress}"></p>
-	      <p th:text="${'Owned by ' + #strings.toUpperCase(store.owner)}"></p>
-	      <p><span class="highlight badge" th:text="${store.open eq 'OPEN' ? 'Open' : 'Closed'}"></span></p>
-      </section>
+      <h4 id="storeName" th:text="${store.name}"></h4>
       
-      <section>
-	      <h4><a id="productLink" href="#">Products</a></h4>
-	      
-	      <table id="productTable">
-	        <thead>
-	          <tr>
-		          <th>Name</th>
-		          <th>Description</th>
-		          <th>Category</th>
-		          <th>Price</th>
-	          </tr>
-	        </thead>
-	        <tbody>
-			      <tr th:each="product : ${products}">
-			        <td th:text="${product.name}" data-attr="name"></td>
-			        <td th:text="${product.description}"></td>
-			        <td th:text="${product.category}"></td>
-			        <td th:text="${{product.price}}"></td>
-			      </tr>
-	        </tbody>
-	      </table>
-      </section>
+       <div class="row">
+		    <div class="col s12">
+		      <ul class="tabs">
+		        <li class="tab col s3"><a class="active" href="#information">Information</a></li>
+		        <li class="tab col s3"><a href="#products">Products</a></li>
+		      </ul>
+		    </div>
+		    
+		    <div id="information" class="col s12">
+	        <p th:text="${store.address.fullAddress}"></p>
+	        <p th:text="${'Owned by ' + #strings.toUpperCase(store.owner)}"></p>
+	        <p><span class="highlight badge" th:text="${store.open eq 'OPEN' ? 'Open' : 'Closed'}"></span></p>
+	        
+	        <a id="hoursModalTrigger" href="#" class="btn-flat">View Hours</a>
+				  <div id="hoursModal" class="modal">
+				    <div class="modal-content">
+				      <h4>Store Hours</h4>
+				      <p>M-F 8:00 AM - 5:00 PM</p>
+				      <p>Saturday 8:00 AM - 12:00 PM</p>
+				      <p>Sunday Closed</p>
+				    </div>
+				    <div class="modal-footer">
+				      <a href="#!" class="modal-action modal-close btn-flat">Got it!</a>
+				    </div>
+				  </div>
+		    </div>
+		    
+		    <div id="products" class="col s12">
+	        <h4>Products</h4>
+	        
+	        <table id="productTable">
+	          <thead>
+	            <tr>
+	              <th>Name</th>
+	              <th>Description</th>
+	              <th>Category</th>
+	              <th>Price</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr th:each="product : ${products}">
+	              <td th:text="${product.name}" data-attr="name"></td>
+	              <td th:text="${product.description}"></td>
+	              <td th:text="${product.category}"></td>
+	              <td th:text="${{product.price}}"></td>
+	            </tr>
+	          </tbody>
+	        </table>
+		    </div>
+		  </div>
     </main>
     
     <footer th:replace="home :: footer">
