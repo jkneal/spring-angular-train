@@ -1,4 +1,4 @@
-package edu.train.customer;
+package edu.train.name;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
