@@ -1,0 +1,42 @@
+<h2>Products ({{filteredProducts.length}})</h2>
+
+<div class="col-md-3 col-md-offset-9 well">
+    <label>Search Products</label><input class="form-control" ng-model="productSearch"/>
+    <label>Select Category</label>
+    <select class="form-control" ng-model="selectedCategory" ng-options="category for category in products | categories">
+        <option value="">-- select category --</option>
+    </select>
+</div>
+
+<table class="table">
+    <thead>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th></th>
+    </thead>
+
+    <tr ng-repeat="product in filteredProducts = (products | filter:selectedCategory | filter:productSearch)">
+        <td>{{product.name}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.price | currency}}</td>
+        <td><button class="btn btn-sm" ng-click="removeProduct($index)">remove</button></td>
+    </tr>
+</table>
+
+<h2>Add Product</h2>
+
+<div class="form-group">
+    <div class="alert alert-success" ng-show="productAdded">Product was successfully added!
+        <button class="close" data-dismiss="alert" ng-click="productAdded=false"><span>&times;</span></button>
+    </div>
+
+    <label>Product Name</label><input class="form-control" ng-model="productName"/>
+    <label>Product Description</label><input class="form-control" ng-model="productDescription"/>
+    <label>Product Category</label><input class="form-control" ng-model="productCategory"/>
+    <label>Product Price</label><input class="form-control" ng-model="productPrice"/>
+</div>
+
+<button class="btn btn-primary" ng-click="addProduct(productName, productDescription, productCategory, productPrice)">add</button>
