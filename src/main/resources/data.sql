@@ -1,3 +1,4 @@
+INSERT INTO STORE_T (NAME, OWNER, OPEN, WEBSITE, ADDR_LINE1, ADDR_CITY, ADDR_ST, ADDR_POST_CD) VALUES ('Joe''s Sports Store', 'Joe', 'OPEN', 'joesports.com', '5100 51st', 'Chicago', 'IL', '60290');
 
 INSERT INTO ORDER_T (ID, TOTAL, CREATE_DT, VERSION) VALUES(ORDER_SEQ.nextval, 19.99, parsedatetime('17-09-2012 18:47:52.690', 'dd-MM-yyyy hh:mm:ss.SS'), 1);
 
