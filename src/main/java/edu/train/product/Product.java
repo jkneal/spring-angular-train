@@ -8,13 +8,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import edu.train.BooleanToStringAttributeConverter;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import edu.train.BooleanToStringAttributeConverter;
+import edu.train.GenericEntity;
 
 @Entity
 @Table(name="PRODUCT_T")
 @Data
-public class Product {
+@EqualsAndHashCode(callSuper=true)
+public class Product extends GenericEntity {
 	
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

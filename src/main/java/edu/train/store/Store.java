@@ -8,13 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
+import edu.train.GenericEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name="STORE_T")
 @IdClass(StorePK.class)
 @Data
-public class Store {
+@EqualsAndHashCode(callSuper=true)
+public class Store extends GenericEntity {
   
   public enum StoreStatus {OPEN, CLOSED}
 
