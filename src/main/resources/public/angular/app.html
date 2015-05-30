@@ -1,18 +1,30 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="storeApp">
 <head>
     <title>AngularTrain</title>
 
     <link href="css/bootstrap.css" rel="stylesheet"/>
 </head>
 
-<body>
+<body ng-controller="storeCrtl">
 
     <div class="container">
+        <h1>{{name}}</h1>
+        <address>{{address}}</address>
+        <span class="label label-default">{{getStatus()}}</span>
 
+        <a href="" ng-click="status = 'Closed'" ng-show="status == 'Open'">close</a>
+        <a href="" ng-click="status = 'Open'" ng-show="status == 'Closed'">open</a>
+
+        <div ng-view></div>
     </div>
 
     <script src="scripts/lib/angular.js"></script>
+    <script src="scripts/lib/angular-route.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/store-controller.js"></script>
+    <script src="scripts/services/product-service.js"></script>
+    <script src="components/cart/cart.js"></script>
 </body>
 
 </html>
