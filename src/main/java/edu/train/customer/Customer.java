@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import edu.train.address.Address;
+import edu.train.name.Name;
 
 @Entity
 @Table(name="CUSTOMER_T")
@@ -22,5 +24,8 @@ public class Customer {
 	
 	@Embedded
 	private Name name;
+	
+	@Embedded
+	private Address address;
 
 }
