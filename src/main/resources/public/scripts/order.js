@@ -28,7 +28,7 @@ function newOrder() {
 		throw Error('Order has already been submitted');  
 	  }	
 	  $.ajax({url: '/orders',
-	    type: 'POST',
+	    method: 'POST',
 		data: {id: this.id, details: JSON.stringify(orderDetails)}, 
 	    contentType: 'application/json'}).done(function(response) {
 	      successCallback(response);  
