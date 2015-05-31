@@ -53,6 +53,19 @@ main {
 	border-bottom: 1px solid #e0e0e0 !important;
 }
 
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-1 {
+	flex: 1;
+}
+
+.border-fix {
+	border-bottom: 1px solid #e0e0e0 !important;
+}
+
 .collection-item a {
   color: #26a69a;
 }
@@ -81,4 +94,8 @@ span.badge.highlight {
 
 p.errors {
   color: red;
+}
+
+.collection.flex-1 {
+	margin-right: 1em;
 }
