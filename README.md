@@ -117,7 +117,7 @@ If you don't complete an exercise, you can commit work in progress to your local
 Agenda
 ------------
 
-[Agenda](Agenda)
+[Agenda](https://github.com/jkneal/spring-angular-train/wiki/Training-Agenda)
 
 Presentations
 ------------
