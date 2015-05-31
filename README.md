@@ -117,7 +117,7 @@ If you don't complete an exercise, you can commit work in progress to your local
 Agenda
 ------------
 
-[Agenda] (Tentative)
+[Agenda](Agenda)
 
 Presentations
 ------------
