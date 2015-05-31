@@ -87,7 +87,7 @@ You should see output similar to the following:
   
 ### Obtaining The Project
 
-1. Using Git, clone the training repo [https://github.com/jkneal/spring-angular-train](https://github.com/jkneal/spring-angular-train) to a local repo (ex. '/projects/spring-angular-train'). You can do this with the following command (assuming you are in the '/projects' directory):
+1. Using Git, clone the training repo [https://github.com/jkneal/spring-angular-train](https://github.com/jkneal/spring-angular-train) to a local repo (ex. '/projects/spring-angular-train'). Make sure to name your project 'spring-angular-train'. You can do this with the following command (assuming you are in the '/projects' directory):
 
    ```
    git clone https://github.com/jkneal/spring-angular-train spring-angular-train
