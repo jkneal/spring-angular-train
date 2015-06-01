@@ -18,7 +18,7 @@ public class JpaStoreRepository implements StoreRepository {
 
 	public Store find(int id) {
 		log.info("Searching for store by primary key: " + id);
-		return null;
+		return entityManager.find(Store.class, id);
 	}
 
 	@Override
@@ -37,12 +37,19 @@ public class JpaStoreRepository implements StoreRepository {
 	@Override
 	public Store save(Store store) {
 		log.info("Saving store: " + store);
-		return null;
+		if(store.getId() == null) {
+			entityManager.persist(store);
+		} else {
+			entityManager.merge(store);
+		}
+		
+		return store;
 	}
 
 	@Override
 	public void delete(Store store) {
 		log.info("Deleting store: " + store);
+		entityManager.remove(store);
 	}
 
 }
