@@ -14,7 +14,7 @@ public class StoreController {
   
   @RequestMapping(value="/{name}/{owner}", method=RequestMethod.GET)
   public Store getStore(@PathVariable String name, @PathVariable String owner) {
-    return storeRepository.find(name, owner);
+    return storeRepository.findByNameAndOwner(name, owner);
   }
   
   @Autowired

@@ -1,7 +1,18 @@
 package edu.train.store;
 
+import java.util.List;
+
+
 public interface StoreRepository {
 
-  public Store find(String name, String owner);
+  Store find(int id);
+  
+  Store findByNameAndOwner(String name, String owner);
+  
+  List<Store> findAll();
+  
+  Store save(Store store);
+  
+  void delete(Store store);
   
 }

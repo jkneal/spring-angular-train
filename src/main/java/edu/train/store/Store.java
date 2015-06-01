@@ -5,18 +5,17 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.Table;
 
-import edu.train.GenericEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import edu.train.GenericEntity;
 import edu.train.address.Address;
 
 @Entity
 @Table(name="STORE_T")
-@IdClass(StorePK.class)
 @Data
 @EqualsAndHashCode(callSuper=true)
 public class Store extends GenericEntity {
@@ -24,9 +23,11 @@ public class Store extends GenericEntity {
   public enum StoreStatus {OPEN, CLOSED}
 
   @Id
+  @GeneratedValue
+  private Integer id;
+  
   private String name;
   
-  @Id
   private String owner;
   
   @Column(name="WEBSITE")
