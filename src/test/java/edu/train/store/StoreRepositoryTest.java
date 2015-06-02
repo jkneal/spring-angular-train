@@ -10,6 +10,7 @@ import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import javax.validation.ConstraintViolationException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -104,13 +105,121 @@ public class StoreRepositoryTest {
 	}
 
 	@Test
-	public void testLastUpdateDate() {
+	public void testLastUpdateDate() throws InterruptedException {
 		Store savedStore = storeRepository.save(buildFakeStore());
 		Date initialUpdateDate = savedStore.getLastUpdateDate();
 		savedStore.setOwner("New Tester");
+
+		// Sleep to make sure the timestamps are different
+		Thread.sleep(10L);
 		savedStore = storeRepository.save(savedStore);
 		entityManager.flush();
 		assertTrue(initialUpdateDate.compareTo(savedStore.getLastUpdateDate()) < 0);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testNameCannotBeNull() {
+		Store newStore = buildFakeStore();
+		newStore.setName(null);
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testNameCannotBeEmpty() {
+		Store newStore = buildFakeStore();
+		newStore.setName("");
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testNameCannotBeBlank() {
+		Store newStore = buildFakeStore();
+		newStore.setName(" ");
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testNameCannotBeTooShort() {
+		Store newStore = buildFakeStore();
+		newStore.setName("1");
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testNameCannotBeTooLong() {
+		Store newStore = buildFakeStore();
+		newStore.setName("12345678901234567890123456789012345678901");
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testOwnerCannotBeNull() {
+		Store newStore = buildFakeStore();
+		newStore.setOwner(null);
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testOwnerCannotBeEmpty() {
+		Store newStore = buildFakeStore();
+		newStore.setOwner("");
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testOwnerCannotBeBlank() {
+		Store newStore = buildFakeStore();
+		newStore.setOwner(" ");
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testOwnerCannotBeTooLong() {
+		Store newStore = buildFakeStore();
+		newStore.setOwner("12345678901234567890123456789012345678901");
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testWebsiteCannotBeNull() {
+		Store newStore = buildFakeStore();
+		newStore.setWebsite(null);
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testWebsiteCannotBeEmpty() {
+		Store newStore = buildFakeStore();
+		newStore.setWebsite("");
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testWebsiteCannotBeBlank() {
+		Store newStore = buildFakeStore();
+		newStore.setWebsite(" ");
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testWebsiteCannotBeTooLong() {
+		Store newStore = buildFakeStore();
+		newStore.setWebsite("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901");
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testOpenCannotBeNull() {
+		Store newStore = buildFakeStore();
+		newStore.setOpen(null);
+		storeRepository.save(newStore);
+	}
+	
+	@Test(expected = ConstraintViolationException.class)
+	public void testAddressCannotBeNull() {
+		Store newStore = buildFakeStore();
+		newStore.setAddress(null);
+		storeRepository.save(newStore);
 	}
 
 	private Store buildFakeStore() {
