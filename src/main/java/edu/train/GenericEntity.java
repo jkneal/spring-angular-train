@@ -7,17 +7,25 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-
 @MappedSuperclass
-@Data
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class GenericEntity {
-	
-	  @Temporal(TemporalType.TIMESTAMP)
-	  @Column(name="CREATE_DT")
-	  private Date createDate;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="CREATE_DT")
+	@Getter
+	@Setter
+	private Date createDate;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="LAST_UPDATE_DT")
+	@Getter
+	@Setter
+	private Date lastUpdateDate;
 
 }
