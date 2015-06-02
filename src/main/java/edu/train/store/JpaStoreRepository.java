@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import lombok.extern.apachecommons.CommonsLog;
 
@@ -24,14 +25,16 @@ public class JpaStoreRepository implements StoreRepository {
 	@Override
 	public Store findByNameAndOwner(String name, String owner) {
 		log.info("Searching for store by name and owner: " + name + ", " + owner);
-		// TODO Implement in future exercise
-		return null;
+		TypedQuery<Store> query = entityManager.createQuery("SELECT s FROM Store s WHERE s.name = :name AND s.owner = :owner", Store.class);
+		query.setParameter("name", name);
+		query.setParameter("owner", owner);
+		return query.getSingleResult();
 	}
 
 	@Override
 	public List<Store> findAll() {
-		// TODO Implement in future exercise
-		return null;
+		TypedQuery<Store> query = entityManager.createQuery("SELECT s FROM Store s", Store.class);
+		return query.getResultList();
 	}
 
 	@Override
