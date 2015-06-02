@@ -7,6 +7,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
@@ -37,6 +38,18 @@ public class StoreRepositoryTest {
 	@Test
 	public void testFind() {
 		assertNotNull(storeRepository.find(1));
+	}
+	
+	@Test
+	public void testFindAll() {
+		List<Store> allStores = storeRepository.findAll();
+		assertTrue(allStores.size() > 1);
+	}
+	
+	@Test
+	public void testFindByNameAndOwner() {
+		Store joesSportsStore = storeRepository.findByNameAndOwner("Joe's Sports Store", "Joe");
+		assertNotNull(joesSportsStore);
 	}
 
 	@Test
