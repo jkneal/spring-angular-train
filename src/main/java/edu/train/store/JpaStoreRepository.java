@@ -33,29 +33,34 @@ public class JpaStoreRepository implements StoreRepository {
 	@Override
 	public Store findByNameAndOwner(String name, String owner) {
 		log.info("Searching for store by name and owner: " + name + ", " + owner);
-		// TODO Implement in future exercise
-		return null;
+		TypedQuery<Store> query = entityManager.createQuery("SELECT s FROM Store s WHERE s.name = :name AND s.owner = :owner", Store.class);
+		query.setParameter("name", name);
+		query.setParameter("owner", owner);
+		return query.getSingleResult();
 	}
 
 	@Override
 	public List<Store> findByNameWithWildcard(String name) {
 		log.info("Searching for store by name with wildcard: " + name);
-		// TODO Implement in future exercise
-		return null;
+		TypedQuery<Store> query = entityManager.createQuery("SELECT s FROM Store s WHERE s.name LIKE :name", Store.class);
+		query.setParameter("name", name);
+		return query.getResultList();
 	}
 
 	@Override
 	public long countStoresByStatus(StoreStatus open) {
 		log.info("Counting stores with status: " + open);
-		// TODO Implement in future exercise
-		return 0;
+		TypedQuery<Long> query = entityManager.createQuery("SELECT COUNT(s) FROM Store s WHERE s.open = :status", Long.class);
+		query.setParameter("status", open);
+		Long count = query.getSingleResult();
+		return count == null ? 0 : count;
 	}
 
 	@Override
 	public List<Store> findStoresCreatedToday() {
 		log.info("Searching for stores created today");
-		// TODO Implement in future exercise
-		return null;
+		TypedQuery<Store> query = entityManager.createQuery("SELECT s FROM Store s WHERE s.createDate > CURRENT_DATE AND s.createDate < CURRENT_DATE + 1", Store.class);
+		return query.getResultList();
 	}
 
 	@Override
