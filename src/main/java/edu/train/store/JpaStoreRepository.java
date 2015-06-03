@@ -10,6 +10,8 @@ import lombok.extern.apachecommons.CommonsLog;
 
 import org.springframework.stereotype.Repository;
 
+import edu.train.store.Store.StoreStatus;
+
 @Repository
 @CommonsLog
 public class JpaStoreRepository implements StoreRepository {
@@ -21,6 +23,12 @@ public class JpaStoreRepository implements StoreRepository {
 		log.info("Searching for store by primary key: " + id);
 		return entityManager.find(Store.class, id);
 	}
+	
+	@Override
+	public List<Store> findAll() {
+		TypedQuery<Store> query = entityManager.createNamedQuery("findAllStores", Store.class);
+		return query.getResultList();
+	}
 
 	@Override
 	public Store findByNameAndOwner(String name, String owner) {
@@ -30,9 +38,24 @@ public class JpaStoreRepository implements StoreRepository {
 	}
 
 	@Override
-	public List<Store> findAll() {
-		TypedQuery<Store> query = entityManager.createNamedQuery("findAllStores", Store.class);
-		return query.getResultList();
+	public List<Store> findByNameWithWildcard(String name) {
+		log.info("Searching for store by name with wildcard: " + name);
+		// TODO Implement in future exercise
+		return null;
+	}
+
+	@Override
+	public long countStoresByStatus(StoreStatus open) {
+		log.info("Counting stores with status: " + open);
+		// TODO Implement in future exercise
+		return 0;
+	}
+
+	@Override
+	public List<Store> findStoresCreatedToday() {
+		log.info("Searching for stores created today");
+		// TODO Implement in future exercise
+		return null;
 	}
 
 	@Override

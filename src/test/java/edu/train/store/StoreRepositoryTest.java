@@ -45,12 +45,6 @@ public class StoreRepositoryTest {
 		List<Store> allStores = storeRepository.findAll();
 		assertTrue(allStores.size() > 1);
 	}
-	
-	@Test
-	public void testFindByNameAndOwner() {
-		Store joesSportsStore = storeRepository.findByNameAndOwner("Joe's Sports Store", "Joe");
-		assertNotNull(joesSportsStore);
-	}
 
 	@Test
 	public void testCreate() {
@@ -233,6 +227,39 @@ public class StoreRepositoryTest {
 		Store newStore = buildFakeStore();
 		newStore.setAddress(null);
 		storeRepository.save(newStore);
+	}
+	
+	@Test
+	public void testFindByNameWithWildcard() {
+		List<Store> storesByWildcard = storeRepository.findByNameWithWildcard("Joe%");
+		assertEquals(1, storesByWildcard.size());
+	}
+	
+	@Test
+	public void testFindByNameWithWildcardMatchAll() {
+		List<Store> allStores = storeRepository.findAll();
+		List<Store> storesByWildcard = storeRepository.findByNameWithWildcard("%");
+		assertEquals(allStores.size(), storesByWildcard.size());
+	}
+	
+	@Test
+	public void testFindByNameAndOwner() {
+		Store joesSportsStore = storeRepository.findByNameAndOwner("Joe's Sports Store", "Joe");
+		assertNotNull(joesSportsStore);
+	}
+	
+	@Test
+	public void testCountStoresByStatus() {
+		List<Store> allStores = storeRepository.findAll();
+		long openStoreCount = storeRepository.countStoresByStatus(StoreStatus.OPEN);
+		long closedStoreCount = storeRepository.countStoresByStatus(StoreStatus.CLOSED);
+		assertEquals(allStores.size(), openStoreCount + closedStoreCount);
+	}
+	
+	@Test
+	public void testFindStoresCreatedToday() {
+		List<Store> storesCreatedToday = storeRepository.findStoresCreatedToday();
+		assertEquals(1, storesCreatedToday.size());
 	}
 
 	private Store buildFakeStore() {
