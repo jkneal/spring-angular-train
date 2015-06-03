@@ -7,6 +7,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,6 +24,7 @@ import edu.train.address.Address;
 @Table(name="STORE_T")
 @Data
 @EqualsAndHashCode(callSuper=true)
+@NamedQuery(name="findAllStores", query="SELECT s FROM Store s")
 public class Store extends GenericEntity {
   
   public enum StoreStatus {OPEN, CLOSED}

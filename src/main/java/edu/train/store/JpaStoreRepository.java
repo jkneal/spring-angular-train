@@ -31,7 +31,7 @@ public class JpaStoreRepository implements StoreRepository {
 
 	@Override
 	public List<Store> findAll() {
-		TypedQuery<Store> query = entityManager.createQuery("SELECT s FROM Store s", Store.class);
+		TypedQuery<Store> query = entityManager.createNamedQuery("findAllStores", Store.class);
 		return query.getResultList();
 	}
 
