@@ -47,12 +47,6 @@ public class StoreRepositoryTest {
 	}
 	
 	@Test
-	public void testFindByNameAndOwner() {
-		Store joesSportsStore = storeRepository.findByNameAndOwner("Joe's Sports Store", "Joe");
-		assertNotNull(joesSportsStore);
-	}
-
-	@Test
 	public void testCreate() {
 		Store savedStore = storeRepository.save(buildFakeStore());
 		assertNotNull(storeRepository.find(savedStore.getId()));
