@@ -25,10 +25,8 @@ public class JpaStoreRepository implements StoreRepository {
 	@Override
 	public Store findByNameAndOwner(String name, String owner) {
 		log.info("Searching for store by name and owner: " + name + ", " + owner);
-		TypedQuery<Store> query = entityManager.createQuery("SELECT s FROM Store s WHERE s.name = :name AND s.owner = :owner", Store.class);
-		query.setParameter("name", name);
-		query.setParameter("owner", owner);
-		return query.getSingleResult();
+		// TODO Implement in future exercise
+		return null;
 	}
 
 	@Override
