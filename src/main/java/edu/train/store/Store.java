@@ -1,6 +1,7 @@
 package edu.train.store;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,6 +10,7 @@ import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 import lombok.Data;
+import edu.train.address.Address;
 
 @Entity
 @Table(name="STORE_T")
@@ -29,5 +31,8 @@ public class Store {
   
   @Enumerated(EnumType.STRING)
   private StoreStatus open;
+  
+  @Embedded
+  private Address address;
 
 }
