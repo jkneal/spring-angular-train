@@ -8,6 +8,10 @@ public class UserSession {
     super();
     this.userName = userName;
   }
+  
+  public boolean canAddProducts() {
+    return userName == "thmeks" ? true : false;
+  }
 
   public String getUserName() {
     return userName;
