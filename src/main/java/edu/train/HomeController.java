@@ -12,4 +12,9 @@ public class HomeController {
 	public String home() {
 		return "home";
 	}
+	
+	@RequestMapping(value="/exception", method=RequestMethod.GET)
+	public void textExceptionHandling() {
+	  throw new AccessException();
+	}
 }
