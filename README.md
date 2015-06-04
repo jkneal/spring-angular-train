@@ -124,7 +124,7 @@ Presentations
 
 [Module 1: JPA](https://iu.box.com/s/9e3hn8ktipx3gm11io9cv0cwnbwz17r2)
 
-Module 2: Spring
+[Module 2: Spring](https://iu.box.com/s/8htf25w03oluku65afsgqgaxtsr9l46f)
 
 Module 3: JavaScript and jQuery
 
