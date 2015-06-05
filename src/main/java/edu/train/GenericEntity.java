@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class GenericEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="CREATE_DT")
+	@Column(name="CREATE_DT", nullable=false)
 	@Getter
 	@Setter
 	private Date createDate;
