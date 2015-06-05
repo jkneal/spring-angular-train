@@ -18,10 +18,10 @@ public class Product {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   
-  @Column(name="NAME")
+  @Column(name="NAME", nullable=false)
   private String name;
   
-  @Column(name="QTY")
+  @Column(name="QTY", nullable=false)
   private int quantity;
 
 }

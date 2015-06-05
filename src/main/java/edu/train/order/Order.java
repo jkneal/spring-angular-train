@@ -31,7 +31,7 @@ public class Order {
   private BigDecimal total;
   
   @Temporal(TemporalType.TIMESTAMP)
-  @Column(name="CREATE_DT")
+  @Column(name="CREATE_DT", nullable=false)
   private Date createDate;
   
   @Transient
