@@ -8,9 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import edu.train.BooleanToStringConverter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import edu.train.BooleanToStringAttributeConverter;
 import edu.train.GenericEntity;
 
 @Entity
@@ -23,14 +23,14 @@ public class Product extends GenericEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   
-  @Column(name="NAME")
+  @Column(name="NAME", nullable=false)
   private String name;
   
-  @Column(name="QTY")
+  @Column(name="QTY", nullable=false)
   private int quantity;
   
   @Column(name="BACKORDER_AVAILABLE")
-  @Convert(converter = BooleanToStringAttributeConverter.class)
+  @Convert(converter = BooleanToStringConverter.class)
   private boolean backorderAvailable;
 
 }

@@ -2,7 +2,7 @@ package edu.train;
 
 import javax.persistence.AttributeConverter;
 
-public class BooleanToStringAttributeConverter implements AttributeConverter<Boolean, String> {
+public class BooleanToStringConverter implements AttributeConverter<Boolean, String> {
 	
 	private static final String TRUE_VALUE = "Y";
 	private static final String FALSE_VALUE = "N";

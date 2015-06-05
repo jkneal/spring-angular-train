@@ -43,7 +43,7 @@ public class Order extends GenericEntity {
   private int version;
   
   @ManyToOne(fetch=FetchType.LAZY)
-  @JoinColumn(name="CUSTOMER_ID", referencedColumnName="ID")
+  @JoinColumn(name="CUSTOMER_FK", referencedColumnName="ID")
   private Customer customer;
   
   @OneToMany(mappedBy="order")
