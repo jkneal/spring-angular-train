@@ -6,16 +6,16 @@ import edu.train.name.Name;
 @Data
 public class CreditAuthorizer {
   
-  private Name name;
+  private String name;
   private String authorizeEndpoint;
   
-  public CreditAuthorizer(Name name, String authorizeEndpoint) {
+  public CreditAuthorizer(String name, String authorizeEndpoint) {
     super();
     this.name = name;
     this.authorizeEndpoint = authorizeEndpoint;
   }
   
-  public boolean isAuthorized(String cardNumber, String customerName) {
+  public boolean isAuthorized(Name customerName, String cardNumber) {
     return ("CreditOnline".equals(name)) ? true : false;
   }
 
