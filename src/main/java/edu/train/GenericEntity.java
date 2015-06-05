@@ -16,8 +16,8 @@ import lombok.Data;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class GenericEntity {
 	
-	  @Temporal(TemporalType.TIMESTAMP)
-	  @Column(name="CREATE_DT")
-	  private Date createDate;
+  @Temporal(TemporalType.TIMESTAMP)
+	@Column(name="CREATE_DT", nullable=false)
+	private Date createDate;
 
 }
