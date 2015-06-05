@@ -1,7 +1,7 @@
 <!doctype html>
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
+  <head th:fragment="head">
     <meta charset="utf-8"/>
 
     <title>Spring to Angular Training</title>
@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <header>
+    <header th:fragment="header">
       <nav class="teal lighten-3">
 	    <div class="nav-wrapper">
 	      <a href="#" style="padding-left: 1em" class="brand-logo">Spring to Angular Training</a>
@@ -26,25 +26,75 @@
       <div class="flex-space">
         <div class="home-nav">
 	        <h4>Exercises</h4>
-		      <div class="collection">
-		        <div class="flex">
-		          <a th:href="@{/products/1}" class="collection-item flex-1">Exercise One Get Product</a>
-		          <a th:href="@{/orders/1}" class="collection-item flex-1">Exercise One Get Order</a>
-		          <a th:href="@{/stores/Joe's Sports Store/Joe}" class="collection-item flex-1 border-fix">Exercise One Get Store</a>
-		        </div>
-                <div class="flex">
-                  <a th:href="@{/products/1}" class="collection-item flex-1">Exercise Two Get Product</a>
-                  <a th:href="@{/orders/1}" class="collection-item flex-1">Exercise Two Get Order</a>
-                  <a th:href="@{/stores/Joe's Sports Store/Joe}" class="collection-item flex-1 border-fix">Exercise Two Get Store</a>
-                </div>
-		        <div class="flex">
-                  <a th:href="@{/products/1}" class="collection-item flex-1">Exercise Three Get Product</a>
-                </div>
-		        <div class="flex">
-                  <a th:href="@{/customers}" class="collection-item flex-1">Exercise Four Get All Customers</a>
-                  <a th:href="@{/customers/1}" class="collection-item flex-1">Exercise Four Get One Customer</a>
-                  <a th:href="@{/stores/Joe's Sports Store/Joe}" class="collection-item flex-1 border-fix">Exercise Four Get Store</a>
-                </div>
+	        <div class="flex">
+			      <div class="collection flex-1">
+		          <a th:href="@{/products/1}" class="collection-item">Ex 1 Get Product</a>
+		          <a th:href="@{/orders/1}" class="collection-item">Ex 1 Get Order</a>
+		          <a th:href="@{/stores/Joe's Sports Store/Joe}" class="collection-item">Ex 1 Get Store</a>
+	            <a th:href="@{/products/1}" class="collection-item">Ex 2 Get Product</a>
+	            <a th:href="@{/orders/1}" class="collection-item">Ex 2 Get Order</a>
+	            <a th:href="@{/stores/Joe's Sports Store/Joe}" class="collection-item">Ex 2 Get Store</a>
+		          <a th:href="@{/products/1}" class="collection-item">Exercise 3 Get Product</a>
+		          <a th:href="@{/customers}" class="collection-item">Exercise Four Get All Customers</a>
+                  <a th:href="@{/customers/1}" class="collection-item">Exercise Four Get One Customer</a>
+                  <a th:href="@{/stores/Joe's Sports Store/Joe}" class="collection-item">Exercise Four Get Store</a>
+		          <a href="#!" class="collection-item">Exercise 5</a>
+		          <a href="#!" class="collection-item">Exercise 6</a>
+		          <a href="#!" class="collection-item">Exercise 7</a>
+		          <a href="#!" class="collection-item">Exercise 8</a>
+		          <a href="#!" class="collection-item">Exercise 9</a>
+		          <a href="#!" class="collection-item">Exercise 10</a>
+		          <a href="#!" class="collection-item">Exercise 11</a>
+		          <a th:href="@{/orders/test}" class="collection-item">Exercise 12</a>
+			      </div>
+			      
+			      <div class="collection flex-1">
+			        <a href="#!" class="collection-item">Exercise 13</a>
+              <a th:href="@{/inventory}" class="collection-item">Ex 14 Get Products</a>
+              <div class="collection-item">
+                <form id="addInventory" action="/inventory/add" method="post">
+                  <a href="#" onClick="$('#addInventory').submit()">Ex 14 Add Product</a>
+                </form>
+              </div>
+              <div class="collection-item">
+                <form id="deleteInventory" action="/inventory/delete" method="post">
+                  <a href="#" onClick="$('#deleteInventory').submit()">Ex 14 Delete Product</a>
+                </form>
+              </div>
+              <a th:href="@{/inventory/search?searchTerm=apples&amp;sortBy=id}" class="collection-item">Ex 15 Search</a>
+              <a th:href="@{/inventory/search?searchTerm=apples}" class="collection-item">Ex 15 Default Sort</a>
+              <div class="collection-item">
+                <form id="deleteInventoryId" action="/inventory/delete/311" method="post">
+                  <a href="#" onClick="$('#deleteInventoryId').submit()">Ex 15 Delete By Id</a>
+                </form>
+              </div>
+              <a th:href="@{/shop}" class="collection-item">Exercise 16</a>
+              <a th:href="@{/shop/newsletter}" class="collection-item">Exercise 17</a>
+              <a th:href="@{/shop}" class="collection-item">Exercise 18</a>
+              <a th:href="@{/shop?browsing=false}" class="collection-item">Ex 19</a>
+              <a th:href="@{/shop?browsing=true}" class="collection-item">Ex 19 Browsing</a>
+              <a th:href="@{/shop?user=thmeks}" class="collection-item">Ex 19 User</a>
+              <a th:href="@{/shop/add}" class="collection-item">Exercise 20</a>
+              <a th:href="@{/shop}" class="collection-item">Ex 21 Formatter</a>
+              <a th:href="@{/shop/add}" class="collection-item">Ex 21 Validate</a>
+            </div>
+            
+            <div class="collection flex-1">
+              <a th:href="@{/shop?user=thmeks}" class="collection-item">Ex 22</a>
+              <a th:href="@{/shop/add?user=yoks}" class="collection-item">Ex 22 No Access</a>
+              <a th:href="@{/shop/products/1}" class="collection-item">Ex 23 Get Product</a>
+              <a th:href="@{/inventory}" class="collection-item">Ex 23 Get All</a>
+              <a href="#" class="collection-item" onClick="testAddProductEndpoint()">Ex 23 Add</a>
+              <a th:href="@{/inventory/search?searchTerm=Bas}" class="collection-item">Ex 23 Search</a>
+              <a href="#" class="collection-item" onClick="testDeleteProductEndpoint(1)">Ex 23 Delete</a>
+              <a href="#" class="collection-item" onClick="testDeleteProductEndpoint(99)">Ex 23 Delete Invalid</a>
+              <a href="#" class="collection-item" onClick="testDeleteProductEndpoint(99)">Ex 24 Delete Invalid</a>
+              <a th:href="@{/exception}" class="collection-item">Ex 24 Access</a>
+              <a th:href="@{/shop/order}" class="collection-item">Exercise 25</a>
+              <a th:href="@{/shop}" class="collection-item">Exercise 26</a>
+              <a th:href="@{/shop}" class="collection-item">Exercise 27</a>
+              <a th:href="@{/angular/app.html}" class="collection-item">Angular Exercises</a>
+            </div>
 		      </div>
 	      </div>
 	      
@@ -75,7 +125,7 @@
       </div>
     </main>
     
-    <footer class="page-footer">
+    <footer class="page-footer" th:fragment="footer">
       <div class="footer-copyright teal lighten-3">
         <a href="https://github.com/jkneal/spring-angular-train" class="footer-github-link">
           <i class="fa fa-github fa-2x footer-github"></i>
@@ -86,7 +136,10 @@
       </div>
     </footer>
     
-    <script type="text/javascript" th:src="@{/scripts/jquery-2.1.3.min.js}"></script>
-    <script type="text/javascript" th:src="@{/scripts/materialize.js}"></script>
+    <div th:fragment="scripts">
+	    <script type="text/javascript" th:src="@{/scripts/jquery-2.1.3.min.js}"></script>
+	    <script type="text/javascript" th:src="@{/scripts/materialize.js}"></script>
+	    <script type="text/javascript" th:src="@{/scripts/application.js}"></script>
+    </div>
   </body>
 </html>
