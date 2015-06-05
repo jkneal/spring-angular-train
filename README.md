@@ -42,7 +42,7 @@ You should see output similar to the following:
    
 ### Eclipse
 
-For the training, everyone should use Eclipse. Please install a clean copy of Eclipse. The latest Eclipse bundle (Luna SR2 (4.4.2)) can be downloaded here:
+For the training, everyone should use Eclipse. Please install a clean copy of the Eclipse IDE for Java EE Developers. The latest Eclipse bundle (Luna SR2 (4.4.2)) can be downloaded here:
 
 [Eclipse Download](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr2)
 
@@ -126,6 +126,6 @@ Presentations
 
 [Module 2: Spring](https://iu.box.com/s/8htf25w03oluku65afsgqgaxtsr9l46f)
 
-Module 3: JavaScript and jQuery
+[Module 3: JavaScript and jQuery](https://iu.box.com/s/p3fqtjoiojsfkvdwwi8g896ld8o8p1z7)
 
 [Module 4: AngularJS](https://iu.box.com/s/bju7f0bm8p9tdubocgnwrgs7mx0a6elg) 
