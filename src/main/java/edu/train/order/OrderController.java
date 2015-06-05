@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.train.customer.Customer;
+import edu.train.name.Name;
 
 @RestController
 @RequestMapping("/orders")
@@ -18,7 +19,9 @@ public class OrderController {
     Order order = new Order();
     order.setId(311);
     Customer customer = new Customer();
-    customer.setName("John");
+    Name customerName = new Name();
+    customerName.setFirstName("John");
+    customer.setName(customerName);
     customer.setCardNumber("1321421421");
     order.setCustomer(customer);
     
