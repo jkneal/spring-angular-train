@@ -3,6 +3,7 @@ package edu.train.customer;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,55 +11,36 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import edu.train.GenericEntity;
 import edu.train.order.Order;
+import edu.train.address.Address;
+import edu.train.name.Name;
 
 @Entity
 @Table(name="CUSTOMER_T")
-public class Customer {
-  
+@Data
+@EqualsAndHashCode(callSuper=true)
+public class Customer extends GenericEntity {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
-  
-  @Column(name="NAME")
-  private String name;
-  
-  @Column(name="CARD_NBR")
-  private String cardNumber;
-  
+	private int id;
+
+	@Column(name="username")
+	private String username;
+
+	@Column(name="CARD_NBR")
+	private String cardNumber;
+	
+	@Embedded
+	private Name name;
+	
+	@Embedded
+	private Address address;
+
   @OneToMany(mappedBy="customer")
   private List<Order> orders;
-
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getCardNumber() {
-    return cardNumber;
-  }
-
-  public void setCardNumber(String cardNumber) {
-    this.cardNumber = cardNumber;
-  }
-
-  public List<Order> getOrders() {
-    return orders;
-  }
-
-  public void setOrders(List<Order> orders) {
-    this.orders = orders;
-  }
-
+  
 }
