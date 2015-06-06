@@ -1,6 +1,7 @@
 package edu.train.transaction;
 
 import lombok.Data;
+import edu.train.name.Name;
 
 @Data
 public class CreditAuthorizer {
@@ -14,7 +15,7 @@ public class CreditAuthorizer {
     this.authorizeEndpoint = authorizeEndpoint;
   }
   
-  public boolean isAuthorized(String cardNumber, String customerName) {
+  public boolean isAuthorized(Name customerName, String cardNumber) {
     return ("CreditOnline".equals(name)) ? true : false;
   }
 
